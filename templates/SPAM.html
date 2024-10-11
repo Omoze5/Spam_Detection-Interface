@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection</title>
+    <link rel="stylesheet" href="{{url_for('static',filename= 'css/SPAM.css')}}">
+</head>
+<body>
+    <h1>Spam Detection Interface</h1>
+    <p class="paragraph">The aim of this project is to help classify email into spam or ham with the help of  Machine Learning.Kindly enter your email content
+        in the box provided below and click submit to get your prediction.
+    </p>
+
+
+        <!-- Email Submission Form -->
+        <div class="form_container">
+            <h2>Submit an Email for Spam Detection</h2>
+            <form action="/submit" method="post">
+                <label for="review">Enter your Mail:</label><br>
+                <textarea id="review" name="review" placeholder="Type the email content here..." required></textarea>
+                <br>
+                <button type="submit">Submit Email</button>
+            </form>
+
+            {% if submitted %}
+            <div class="result">
+                <p><strong>Predicted:</strong> {{ Predicted }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+           
